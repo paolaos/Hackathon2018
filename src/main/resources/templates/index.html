@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Insert a already existing layout. -->
+    <th:block th:replace="layouts/default-head :: default-head('Index')"></th:block>
+</head>
+<body>
+
+<!-- Use Thymeleaf to get information from our logged user. -->
+<th:block th:with="auth=${#authentication.getPrincipal()}">
+    <h1 th:text="auth ? 'Code Merger - ' + ${auth.realName} : ${#authentication.getName()}"></h1>
+</th:block>
+<h2>All Users</h2>
+
+<ul>
+    <!-- Iterate through all users sent inside the "users" attribute. -->
+    <!-- "users" was added to our model in our IndexController. -->
+    <th:block th:each="user: ${users}">
+        <li th:text="${user.name}"></li>
+    </th:block>
+</ul>
+
+<!-- Logout our user. -->
+<form method="post" action="/logout">
+    <button type="submit" class="btn btn-primary">Logout</button>
+</form>
+
+</body>
+</html>

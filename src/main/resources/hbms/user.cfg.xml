@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="application.model.User" table="USER" catalog="CODE_MERGERS">
+        <id name="idUserPk">
+            <column name="ID_user_PK" sql-type="varchar(60)" length="60"/>
+        </id>
+        <property name="password">
+            <column name="password" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(254)" length="254" unique="true" not-null="true"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar(120)" length="120" not-null="true"/>
+        </property>
+        <property name="role">
+            <column name="role" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+    </class>
+
+</hibernate-mapping>
