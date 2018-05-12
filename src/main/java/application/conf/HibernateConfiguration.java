@@ -15,12 +15,9 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("properties/connection.properties")
 @ComponentScans(value = { @ComponentScan("application.model"),
         @ComponentScan("application.core") })
 public class HibernateConfiguration {
-
-    private @Value("hibernate.connection.driver_class") String driverClass;
 
     @Bean
     public DataSource getDataSource() {
