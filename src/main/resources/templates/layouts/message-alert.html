@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="message-alert-body">
+    <div th:if="${messageAlert}" class="message-alert-container hidden">
+        <p class="message-alert-title" th:text="${messageTitle}"></p>
+        <p class="message-alert-text" th:text="${messageAlert}"></p>
+        <p class="message-alert-type" th:text="${messageType}"></p>
+    </div>
+</th:block>
+</body>
+</html>

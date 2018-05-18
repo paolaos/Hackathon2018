@@ -6,13 +6,17 @@ import application.model.ExceptionStatusEnum;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Created by alexiaborchgrevink on 5/17/18.
  */
+@Service
 public class ExceptionDaoImpl implements ExceptionDao {
 
     // We are gonna use a session-per-request pattern, for each dta access object (dao).
@@ -47,7 +51,9 @@ public class ExceptionDaoImpl implements ExceptionDao {
 
         // Try to retrieve date from the DB. If we fail, then we return null.
         try {
-            return session.createQuery("FROM Exception WHERE status = :exceptionStatus").list();
+            Query query = session.createQuery("FROM Exception WHERE status = :exceptionStatus");
+            query.setParameter("exceptionStatus", exceptionStatus);
+            return query.list();
         } catch (java.lang.Exception e) {
             e.getStackTrace();
             return null;

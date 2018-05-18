@@ -5,6 +5,7 @@
 </head>
 <body>
 <th:block th:fragment="default-left-bar">
+    <section th:replace="layouts/message-alert :: message-alert-body"></section>
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
