@@ -37,101 +37,24 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
             <hr/>
             <div class="row">
 
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="panel panel-back noti-box">
+                <th:block th:each="exception:${exceptions}">
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="panel panel-back noti-box">
                         <span class="icon-box bg-color-red set-icon">
                             <i class="glyphicon glyphicon-info-sign"></i>
                         </span>
-                        <div class="text-box">
-                            <p class="main-text">Wordprocess</p>
-                            <p class="text-muted">Porcess mesaure</p>
-                            <p class="text-muted">Time to expire</p>
-                            <div class="progress">
-                                <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="text-box">
+                                <p class="main-text" th:text="${exception.workProcessFk}">Wordprocess</p>
+                                <p class="text-muted" th:text="${exception.processMeasureFk}"></p>
+                                <p class="text-muted">Time to expire</p>
+                                <div class="progress">
+                                    <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </th:block>
 
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="panel panel-back noti-box">
-                        <span class="icon-box bg-color-red set-icon">
-                            <i class="glyphicon glyphicon-info-sign"></i>
-                        </span>
-                        <div class="text-box">
-                            <p class="main-text">Wordprocess</p>
-                            <p class="text-muted">Porcess mesaure</p>
-                            <p class="text-muted">Time to expire</p>
-                            <div class="progress">
-                                <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="panel panel-back noti-box">
-                        <span class="icon-box bg-color-red set-icon">
-                            <i class="glyphicon glyphicon-info-sign"></i>
-                        </span>
-                        <div class="text-box">
-                            <p class="main-text">Wordprocess</p>
-                            <p class="text-muted">Porcess mesaure</p>
-                            <p class="text-muted">Time to expire</p>
-                            <div class="progress">
-                                <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="panel panel-back noti-box">
-                        <span class="icon-box bg-color-red set-icon">
-                            <i class="glyphicon glyphicon-info-sign"></i>
-                        </span>
-                        <div class="text-box">
-                            <p class="main-text">Wordprocess</p>
-                            <p class="text-muted">Porcess mesaure</p>
-                            <p class="text-muted">Time to expire</p>
-                            <div class="progress">
-                                <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="panel panel-back noti-box">
-                        <span class="icon-box bg-color-red set-icon">
-                            <i class="glyphicon glyphicon-info-sign"></i>
-                        </span>
-                        <div class="text-box">
-                            <p class="main-text">Wordprocess</p>
-                            <p class="text-muted">Porcess mesaure</p>
-                            <p class="text-muted">Time to expire</p>
-                            <div class="progress">
-                                <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="panel panel-back noti-box">
-                        <span class="icon-box bg-color-red set-icon">
-                            <i class="glyphicon glyphicon-info-sign"></i>
-                        </span>
-                        <div class="text-box">
-                            <p class="main-text">Wordprocess</p>
-                            <p class="text-muted">Porcess mesaure</p>
-                            <p class="text-muted">Time to expire</p>
-                            <div class="progress">
-                                <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
             <!-- /. ROW  -->
