@@ -1,5 +1,8 @@
 package application.core.vote.service.implementation;
 
+import application.model.Exception;
+import application.core.exception.service.ExceptionService;
+import application.core.processmeasureparticipant.service.ProcessMeasureParticipantService;
 import application.core.vote.dao.VoteDao;
 import application.core.vote.service.VoteService;
 import application.model.Vote;
@@ -21,9 +24,17 @@ public class VoteServiceImpl implements VoteService {
     @Autowired
     private VoteDao voteDao;
 
+    @Autowired
+    private ExceptionService exceptionService;
+
     @Override
     public Vote findById(VoteId id) {
         return this.voteDao.findById(id);
+    }
+
+    @Override
+    public Integer countVotesByProcessMeasure(VoteId voteId) {
+        return voteDao.countVotesByProcessMeasure(voteId);
     }
 
     @Override
@@ -44,5 +55,12 @@ public class VoteServiceImpl implements VoteService {
     @Override
     public void delete(Vote vote) throws HibernateException {
         this.voteDao.delete(vote);
+    }
+
+    private boolean checkVotes(Vote vote) {
+        Integer voteCount = voteDao.countVotesByProcessMeasure(vote.getVoteId());
+        Exception exception = exceptionService.findById(vote.getVoteId().getExceptionFk());
+        if(voteCount >= exception.getVoteCount()) return true;
+        return false;
     }
 }

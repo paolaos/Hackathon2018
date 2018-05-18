@@ -18,6 +18,8 @@ public interface VoteService {
      */
     Vote findById(VoteId id);
 
+    Integer countVotesByProcessMeasure(VoteId voteId);
+
     /**
      * Return all votes from our database.
      *

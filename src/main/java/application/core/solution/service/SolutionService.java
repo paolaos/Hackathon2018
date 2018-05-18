@@ -2,6 +2,7 @@ package application.core.solution.service;
 
 import application.model.Solution;
 import application.model.SolutionId;
+import application.security.AppUser;
 import org.hibernate.HibernateException;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public interface SolutionService {
      *
      * @throws HibernateException Error inserting a new solution.
      */
-    void insert(Solution solution) throws HibernateException;
+    void insert(Solution solution, AppUser user) throws HibernateException;
 
     /**
      * Update a new solution.
@@ -45,4 +46,5 @@ public interface SolutionService {
      * @throws HibernateException Error deleting a new solution.
      */
     void delete(Solution solution) throws HibernateException;
+
 }

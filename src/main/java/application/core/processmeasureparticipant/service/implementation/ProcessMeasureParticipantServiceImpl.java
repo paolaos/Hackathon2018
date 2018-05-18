@@ -46,4 +46,9 @@ public class ProcessMeasureParticipantServiceImpl implements ProcessMeasureParti
     public List<ProcessMeasureParticipant> getParticipantsByProcessMeasure(ProcessMeasureId processMeasureId){
         return this.processMeasureParticipantDao.getParticipantByProcessMeasure(processMeasureId);
     }
+
+    @Override
+    public Integer countParticipantsByProcessMeasure(ProcessMeasureId processMeasureId) {
+        return this.processMeasureParticipantDao.countParticipantsByProcessMeasure(processMeasureId);
+    }
 }
