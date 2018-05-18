@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
             title: $('.message-alert-title').text(),
             text: $('.message-alert-text').text(),
             type: $('.message-alert-type').text(),
-            confirmButtonText: "Ok, entiendo."
+            confirmButtonText: "Ok, got it!."
         });
     }
 });

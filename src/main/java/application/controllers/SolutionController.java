@@ -28,6 +28,8 @@ public class SolutionController {
     @Autowired
     ExceptionService exceptionService;
 
+
+
     @RequestMapping(value = "/solution/add-solution")
     public String submitSolution(@RequestParam("exceptionId") Integer exceptionId,
                                  @RequestParam("solutionId") String solutionId,
@@ -84,6 +86,18 @@ public class SolutionController {
         Solution solution = solutionService.getRecommendedSolution(exceptiopnId);
         if(solution == null) return "No solutions yet! Propose one!";
         return solution.getDescription();
+    }
+
+    @RequestMapping(value= "/solution/vote")
+    public String voteSolution(@RequestParam("exceptionId") long exceptionId,
+                               RedirectAttributes redirectAttributes) {
+        try {
+            Exception exception = exceptionService.findById(exceptionId);
+
+        } catch (java.lang.Exception e) {
+
+        }
+        return "";
     }
 }
 

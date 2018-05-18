@@ -20,7 +20,7 @@
             </div>
             <hr/>
             <!-- /. ROW  -->
-            <form  >
+            <form th:object="*{manualException}">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -29,7 +29,11 @@
                         </div>
                         <div class="form-group">
                             <label>Work process:</label>
-                            <input class="light-text" />
+                            <select th:field="${workProcessFk}">
+                                <th:block th:each="work: ${works}">
+                                    <option th:text="${work.workProcessId.name}"></option>
+                                </th:block>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Process measure:</label>
