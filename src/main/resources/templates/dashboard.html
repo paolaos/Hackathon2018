@@ -43,14 +43,16 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         <span class="icon-box bg-color-red set-icon">
                             <i class="glyphicon glyphicon-info-sign"></i>
                         </span>
-                            <div class="text-box">
-                                <p class="main-text" th:text="${exception.workProcessFk}">Wordprocess</p>
-                                <p class="text-muted" th:text="${exception.processMeasureFk}"></p>
-                                <p class="text-muted">Time to expire</p>
-                                <div class="progress">
-                                    <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            <a class="anchor-no-decorate" th:href="@{'/exception/'+${exception.exceptionId}}">
+                                <div class="text-box">
+                                    <p class="main-text" th:text="${exception.workProcessFk}"></p>
+                                    <p class="text-muted" th:text="${exception.processMeasureFk}"></p>
+                                    <p class="text-muted">Time to expire</p>
+                                    <div class="progress">
+                                        <div class="progress-bar w-75" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </th:block>
@@ -59,8 +61,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
             </div>
             <!-- /. ROW  -->
             <hr/>
-            <div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 no-float">
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
