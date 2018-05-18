@@ -14,7 +14,6 @@
         <property name="description">
             <column name="description"/>
         </property>
-        <property name="description" column="description"></property>
         <many-to-one name="exception" class="application.model.Exception" column="exception_fk" lazy="false" insert="false" update="false"/>
     </class>
 </hibernate-mapping>
