@@ -56,6 +56,7 @@ public class SolutionController {
             solution.setSolutionId(newSolutionId);
             solution.setDescription(description);
             solution.setCount(1);
+            solution.setRank(1);
 
             solutionService.insert(solution, appUser);
         } catch (HibernateException e) {

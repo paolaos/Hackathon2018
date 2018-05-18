@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.Query;
 import java.util.List;
 
 /**
@@ -40,6 +41,20 @@ public class SolutionDaoImpl implements SolutionDao {
     }
 
     @Override
+    public Solution getRecommendedSolution(long exceptionId) {
+        Session session = factory.getCurrentSession();
+        try {
+            org.hibernate.query.Query query = session.createQuery("from Solution S join fetch S.exception where S.solutionId.exceptionFk = :exceptionFk order by S.rank asc");
+            query.setParameter("exceptionFk", exceptionId);
+            query.setMaxResults(1);
+            return (Solution) query.getSingleResult();
+        } catch (Exception e) {
+            e.getStackTrace();
+            return null;
+        }
+    }
+
+    @Override
     public List<Solution> getAllSolutions() {
         // Almost always use getCurrentSession, instead of openSession.
         // Only in very odd cases, should the latter be used.
@@ -49,7 +64,24 @@ public class SolutionDaoImpl implements SolutionDao {
 
         // Try to retrieve date from the DB. If we fail, then we return null.
         try {
-            return session.createQuery("from Solutions").list();
+            return session.createQuery("from Solution").list();
+        } catch (Exception e) {
+            e.getStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<Solution> getAllSolutionsByException(long exceptionId) {
+        // Almost always use getCurrentSession, instead of openSession.
+        // Only in very odd cases, should the latter be used.
+        // For more information, read the following docs.
+        // http://docs.jboss.org/hibernate/core/3.3/reference/en/html/transactions.html#transactions-basics-uow
+        Session session = factory.getCurrentSession();
+
+        // Try to retrieve date from the DB. If we fail, then we return null.
+        try {
+            return session.createQuery("from Solution S join fetch S.exception where S.solutionId.exceptionFk = :exceptionId").setParameter("exceptionId", exceptionId).list();
         } catch (Exception e) {
             e.getStackTrace();
             return null;

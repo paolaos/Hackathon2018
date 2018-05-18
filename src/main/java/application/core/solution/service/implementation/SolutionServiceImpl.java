@@ -28,12 +28,14 @@ public class SolutionServiceImpl implements SolutionService {
     @Autowired
     private SolutionDao solutionDao;
 
-    @Autowired
-    private VoteService voteService;
-
     @Override
     public Solution findById(SolutionId id) {
         return this.solutionDao.findById(id);
+    }
+
+    @Override
+    public Solution getRecommendedSolution(long exceptionId) {
+        return solutionDao.getRecommendedSolution(exceptionId);
     }
 
     @Override
@@ -42,7 +44,11 @@ public class SolutionServiceImpl implements SolutionService {
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
+    public List<Solution> getAllSolutionsByException(long exceptionId) {
+        return this.solutionDao.getAllSolutionsByException(exceptionId);
+    }
+
+    @Override
     public void insert(Solution solution, AppUser appUser) throws HibernateException {
         this.solutionDao.insert(solution);
     }

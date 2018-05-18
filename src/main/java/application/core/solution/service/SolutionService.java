@@ -19,12 +19,16 @@ public interface SolutionService {
      */
     Solution findById(SolutionId id);
 
+    Solution getRecommendedSolution(long exceptionId);
+
     /**
      * Return all solution from our database.
      *
      * @return List of solution.
      */
     List<Solution> getAllSolutions();
+
+    List<Solution> getAllSolutionsByException(long exceptionId);
 
     /**
      * Insert a new solution.

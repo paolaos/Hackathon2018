@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <th:block th:replace="layouts/default-head :: default-head('Inicio')"></th:block>
+    <th:block th:replace="layouts/default-head :: default-head('Exception')"></th:block>
+    <script th:src="@{/js/add-user.js}"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -56,12 +57,15 @@
                                         <td>
                                             <div style="width: 100%;">
                                                 <div style="width: auto; display: inline-flex;">
-                                                    <select style="width: auto;" class="form-control">
-                                                        <option>Jorge Remón</option>
-                                                        <option>Paola Ortega</option>
-                                                        <option>Andrés Rojas</option>
-                                                    </select>
-                                                    <a style="margin: auto 5px;" href="#" class="btn btn-warning btn-sm">Add co-worker</a>
+                                                    <form id="add-user" th:action="@{/exception/add-user}">
+                                                        <input name="exceptionId" th:value="${exception.indicatorFk}" class="hidden"/>
+                                                        <select name="userId" style="width: auto;" class="form-control">
+                                                            <th:block th:each="user: ${allUsers}">
+                                                                <option th:text="${user.name}" th:value="${user.idUserPk}"></option>
+                                                            </th:block>
+                                                        </select>
+                                                    </form>
+                                                    <a id="add-user-submit" style="margin: auto 5px;" href="#" class="btn btn-warning btn-sm">Add co-worker</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -109,8 +113,8 @@
                                         <td>
                                             <div style="width: 100%; display: inline-flex;">
                                                 <div style="width: 80%">
-                                                    <p style="margin: 0px !important; padding: 0px !important ">Opción 1</p>
-                                                    <p style="margin: 0px !important; padding: 0px !important " >Descripción Opción 1.</p>
+                                                    <p style="margin: 0px !important; padding: 0px !important " th:text="${recommendSolution.solutionId.id}"></p>
+                                                    <p style="margin: 0px !important; padding: 0px !important " th:text="${recommendSolution.description}"></p>
                                                 </div>
                                                 <div style="width: 20%; text-align: right;">
                                                     <button style="margin: 0px auto;" type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
@@ -128,48 +132,22 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>
-                                            <div style="width: 100%; display: inline-flex;">
-                                                <div style="width: 80%">
-                                                    <p style="margin: 0px !important; padding: 0px !important ">Opción 1</p>
-                                                    <p style="margin: 0px !important; padding: 0px !important " >Descripción Opción 1.</p>
+                                    <th:block th:each="solution: ${solutions}">
+                                        <tr class="odd gradeX">
+                                            <td>
+                                                <div style="width: 100%; display: inline-flex;">
+                                                    <div style="width: 80%">
+                                                        <p style="margin: 0px !important; padding: 0px !important " th:text="${solution.solutionId.id}"></p>
+                                                        <p style="margin: 0px !important; padding: 0px !important " th:text="${solution.description}"></p>
+                                                    </div>
+                                                    <div style="width: 20%; text-align: right;">
+                                                        <button style="margin: 0px auto;" type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <div style="width: 20%; text-align: right;">
-                                                    <button style="margin: 0px auto;" type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td>
-                                            <div style="width: 100%; display: inline-flex;">
-                                                <div style="width: 80%">
-                                                    <p style="margin: 0px !important; padding: 0px !important ">Opción 1</p>
-                                                    <p style="margin: 0px !important; padding: 0px !important " >Descripción Opción 1.</p>
-                                                </div>
-                                                <div style="width: 20%; text-align: right;">
-                                                    <button style="margin: 0px auto;" type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td>
-                                            <div style="width: 100%; display: inline-flex;">
-                                                <div style="width: 80%">
-                                                    <p style="margin: 0px !important; padding: 0px !important ">Opción 1</p>
-                                                    <p style="margin: 0px !important; padding: 0px !important " >Descripción Opción 1.</p>
-                                                </div>
-                                                <div style="width: 20%; text-align: right;">
-                                                    <button style="margin: 0px auto;" type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    </th:block>
                                     </tbody>
                                 </table>
                             </div>
