@@ -60,6 +60,13 @@
             <version>5.2.12.Final</version>
         </dependency>
 
+        <!-- Image resizing -->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>0.4.8</version>
+        </dependency>
+
         <!-- c3p0 -->
         <!-- Session manager -->
         <!-- Without this, our MySQL DBMS will drop our connection after certain amounts of hours of inactivity -->

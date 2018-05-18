@@ -7,12 +7,14 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by alexiaborchgrevink on 5/17/18.
  */
+@Service
 public class ProcessMeasureParticipantDaoImpl implements ProcessMeasureParticipantDao {
 
     // We are gonna use a session-per-request pattern, for each dta access object (dao).
