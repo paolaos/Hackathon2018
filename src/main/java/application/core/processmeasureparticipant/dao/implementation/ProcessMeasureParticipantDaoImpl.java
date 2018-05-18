@@ -79,7 +79,7 @@ public class ProcessMeasureParticipantDaoImpl implements ProcessMeasureParticipa
 
         // Try to retrieve date from the DB. If we fail, then we return null.
         try {
-            Query query = session.createQuery("from ProcessMeasureParticipant PM join fetch PM.processMeasure join fetch PM.user where PM.processMeasureId =:processMeasureId");
+            Query query = session.createQuery("from ProcessMeasureParticipant PM join fetch PM.processMeasure join fetch PM.user where PM.processMeasure.processMeasureId =:processMeasureId");
             query.setParameter("processMeasureId", processMeasureId);
             return query.list();
 
