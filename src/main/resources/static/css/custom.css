@@ -74,7 +74,7 @@ p {
 }
 
 .noti-box {
-    min-height: 100px;
+    height: 300px;
     padding: 20px;
 }
 
@@ -104,6 +104,19 @@ p {
     -moz-border-radius: 50px;
     border-radius: 50px;
 
+}
+
+.light-text{
+    font-weight: 100 !important;
+}
+.photo{
+    height: 40px;
+    width: 40px;
+    border-radius: 89%;
+    margin: 0px auto !important;
+}
+.table{
+    margin-bottom: 0px !important;
 }
 
 .bg-color-green {
