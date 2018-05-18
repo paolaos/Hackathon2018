@@ -31,6 +31,9 @@
         <property name="status">
             <column name="status" sql-type="varchar(255)" not-null="true"/>
         </property>
+        <property name="description">
+            <column name="description" sql-type="varchar(255)" not-null="false"/>
+        </property>
         <many-to-one name="processMeasure" class="application.model.ProcessMeasure" insert="false" update="false">
             <column name="indicator_fk"/>
             <column name="work_process_fk"/>

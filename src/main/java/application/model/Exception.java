@@ -13,6 +13,7 @@ public class Exception {
     private Double tolerance;
     private Double value_kpi;
     private String status;
+    private String description;
 
     private ProcessMeasure processMeasure;
 
@@ -108,6 +109,14 @@ public class Exception {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 
