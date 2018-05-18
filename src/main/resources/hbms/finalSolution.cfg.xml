@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="application.model.FinalSolution" table="FINAL_SOLUTION" catalog="CODE_MERGERS">
+        <composite-id name="finalSolutionId" class="application.model.FinalSolutionId">
+            <key-property name="exceptionFk" column="exception_fk"></key-property>
+            <key-property name="solutionFk" column="solution_fk"></key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
