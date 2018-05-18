@@ -3,40 +3,19 @@ package application.model;
 
 public class Vote {
 
-  private String userFk;
-  private String solutionFk;
-  private long exceptionFk;
+  private VoteId voteId;
+
   private java.sql.Timestamp voteTime;
 
+    public VoteId getVoteId() {
+        return voteId;
+    }
 
-  public String getUserFk() {
-    return userFk;
-  }
+    public void setVoteId(VoteId voteId) {
+        this.voteId = voteId;
+    }
 
-  public void setUserFk(String userFk) {
-    this.userFk = userFk;
-  }
-
-
-  public String getSolutionFk() {
-    return solutionFk;
-  }
-
-  public void setSolutionFk(String solutionFk) {
-    this.solutionFk = solutionFk;
-  }
-
-
-  public long getExceptionFk() {
-    return exceptionFk;
-  }
-
-  public void setExceptionFk(long exceptionFk) {
-    this.exceptionFk = exceptionFk;
-  }
-
-
-  public java.sql.Timestamp getVoteTime() {
+    public java.sql.Timestamp getVoteTime() {
     return voteTime;
   }
 
