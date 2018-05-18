@@ -34,7 +34,15 @@ public class HibernateConfiguration {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(getDataSource());
         sessionFactory.setPackagesToScan("application.model");
-        sessionFactory.setMappingResources("hbms/user.cfg.xml");
+        sessionFactory.setMappingResources("hbms/user.cfg.xml",
+                "hbms/exception.cfg.xml",
+                "hbms/finalSolution.cfg.xml",
+                "hbms/indicator.cfg.xml",
+                "hbms/processMeasure.cfg.xml",
+                "hbms/processMeasureParticipant.cfg.xml",
+                "hbms/solution.cfg.xml",
+                "hbms/vote.cfg.xml",
+                "hbms/workProcess.cfg.xml");
         sessionFactory.setHibernateProperties(getHibernateProperties());
         return sessionFactory;
     }

@@ -5,13 +5,17 @@
 <hibernate-mapping>
     <class name="application.model.ProcessMeasure" table="PROCESS_MEASURE" catalog="CODE_MERGERS">
         <composite-id name="processMeasureId" class="application.model.ProcessMeasureId">
-            <key-property name="indicatorFk" column="indicator_fk"></key-property>
-            <key-property name="workProcessFk" column="work_process_fk"></key-property>
-            <key-property name="name" column="name"></key-property>
-            <key-property name="variance" column="variance"></key-property>
-            <key-property name="tolerance" column="tolerance"></key-property>
+            <key-property name="indicatorFk" column="indicator_fk"/>
+            <key-property name="workProcessFk" column="work_process_fk"/>
+            <key-property name="name" column="name"/>
         </composite-id>
-        <many-to-one name="indicator" class="application.model.Indicators" column="indicator_fk"/>
+        <property name="tolerance">
+            <column name="tolerance" sql-type="double"/>
+        </property>
+        <property name="variance">
+            <column name="variance" sql-type="double"/>
+        </property>
+        <many-to-one name="indicator" class="application.model.Indicators" column="indicator_fk" insert="false" update="false"/>
     </class>
 
 </hibernate-mapping>

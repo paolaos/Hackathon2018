@@ -4,7 +4,10 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="application.model.Exception" table="EXCEPTION" catalog="CODE_MERGERS">
-        <property name="indicatorFk">
+        <id name="exceptionId">
+            <column name="exception_id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="indicatorFk" insert="false" update="false">
             <column name="indicator_fk" sql-type="int"/>
         </property>
         <property name="workProcessFk">
@@ -12,9 +15,6 @@
         </property>
         <property name="processMeasureFk">
             <column name="process_measure_fk" sql-type="varchar(255)" length="255" not-null="true"/>
-        </property>
-        <property name="exceptionId">
-            <column name="exception_id" sql-type="int" not-null="true"/>
         </property>
         <property name="dateCreated">
             <column name="date_created" sql-type="date" not-null="true"/>
@@ -28,7 +28,7 @@
         <property name="value_kpi">
             <column name="value_kpi" sql-type="double" not-null="true"/>
         </property>
-        <many-to-one name="processMeasure" class="application.model.ProcessMeasure">
+        <many-to-one name="processMeasure" class="application.model.ProcessMeasure" insert="false" update="false">
             <column name="indicator_fk"/>
             <column name="work_process_fk"/>
             <column name="process_measure_fk"/>

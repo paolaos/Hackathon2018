@@ -1,9 +1,11 @@
 package application.model;
 
+import java.io.Serializable;
+
 /**
  * Created by alexiaborchgrevink on 5/17/18.
  */
-public class FinalSolutionId {
+public class FinalSolutionId implements Serializable {
 
     private long exceptionFk;
     private String solutionFk;

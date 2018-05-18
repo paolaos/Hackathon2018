@@ -46,7 +46,14 @@
 
         <!-- Mappings -->
         <mapping resource="hbms/user.cfg.xml"/>
-
+        <mapping resource="hbms/exception.cfg.xml"/>
+        <mapping resource="hbms/finalSolution.cfg.xml"/>
+        <mapping resource="hbms/indicator.cfg.xml"/>
+        <mapping resource="hbms/processMeasure.cfg.xml"/>
+        <mapping resource="hbms/processMeasureParticipant.cfg.xml"/>
+        <mapping resource="hbms/solution.cfg.xml"/>
+        <mapping resource="hbms/vote.cfg.xml"/>
+        <mapping resource="hbms/workProcess.cfg.xml"/>
 
     </session-factory>
 </hibernate-configuration>

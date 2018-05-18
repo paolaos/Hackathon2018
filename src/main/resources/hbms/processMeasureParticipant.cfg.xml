@@ -10,7 +10,7 @@
             <key-property name="processMeasureFk" column="process_measure_fk"></key-property>
             <key-property name="userFk" column="user_fk"></key-property>
         </composite-id>
-        <many-to-one name="processMeasure" class="application.model.ProcessMeasure">
+        <many-to-one name="processMeasure" class="application.model.ProcessMeasure" update="false" insert="false">
             <column name="indicator_fk"/>
             <column name="work_process_fk"/>
             <column name="process_measure_fk"/>
