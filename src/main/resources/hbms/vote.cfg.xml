@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="application.model.Vote" table="VOTE" catalog="CODE_MERGERS">
+        <composite-id name="voteId" class="application.model.VoteId">
+            <key-property name="userFk" column="user_fk"/>
+            <key-property name="solutionFk" column="solution_fk"/>
+            <key-property name="exceptionFk" column="exception_fk"/>
+        </composite-id>
+        <property name="voteTime">
+            <column name="vote_time" sql-type="timestamp" not-null="true"/>
+        </property>
+    </class>
+
+</hibernate-mapping>
