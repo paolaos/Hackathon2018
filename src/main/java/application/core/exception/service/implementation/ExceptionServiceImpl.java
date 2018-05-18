@@ -44,4 +44,5 @@ public class ExceptionServiceImpl implements ExceptionService {
     public void delete(Exception exception) throws HibernateException {
         this.exceptionDao.delete(exception);
     }
+
 }
