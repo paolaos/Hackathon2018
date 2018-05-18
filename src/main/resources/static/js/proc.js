@@ -2,46 +2,40 @@
     var procImageSource = "https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif";
     var proc = {
         getSuggestionImage: function () {
-            var suggestedImage = document.createElement('img');
+            var suggestedImage = document.createElement('IMG');
             suggestedImage.class = 'proc-image-suggestion';
             suggestedImage.src = procImageSource;
+            suggestedImage.style.height = "100px";
             return suggestedImage;
         },
 
         recommendedSolution: function (exception, e) {
-            var bestSolution = "Not found solution for this exception";
+            var bestSolution = "";
             $.ajax({
                 type: 'GET',
-                url: '/exception/getSolution/' + exception,
-                dataType: 'json',
+                url: '/solution/get/' + exception,
                 contentType: 'application/json; charset=utf-8',
                 success: function (response) {
-                    bestSolution = JSON.stringify(response);
+                    e.insertBefore(document.createElement('H2').appendChild(document.createTextNode("Proc Recommendation: "+response)), e.firstChild);
                 },
                 error: function (xhr, textStatus, error) {
-                    console.log(xhr.statusText);
-                    console.log(textStatus);
-                    console.log(error);
-                    document.createElement("p").appendChild(document.createTextNode("Not found solution for this exception"));
+                    return document.createElement("P").appendChild(document.createTextNode("Not found solution for this exception"));
                 }
             });
-            return document.createElement("p").appendChild(document.createTextNode(bestSolution));
         }
     };
 
     $(document).ready(function () {
+
         $('#select-solution').click(function () {
+            $(".solution-box").remove();
             var currentLink = window.location.href;
             var exceptionId = currentLink.substr(currentLink.lastIndexOf('/') + 1);
             var suggestionWindow = document.createElement('div');
-            suggestionWindow.class = 'solution-box';
+            suggestionWindow.className = 'solution-box';
+            proc.recommendedSolution(exceptionId, suggestionWindow);
             suggestionWindow.appendChild(proc.getSuggestionImage());
-            suggestionWindow.appendChild(proc.recommendedSolution(exceptionId, this));
-            $.notify(suggestionWindow,
-                {
-                    globalPosition: 'top right'
-                }
-            );
+            $('.modal-footer').append(suggestionWindow);
         });
     });
 }(jQuery));

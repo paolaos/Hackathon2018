@@ -464,3 +464,6 @@ a.anchor-no-decorate {
     text-decoration: none !important;
 }
 
+.solution-box{
+    font-weight: bold;
+}

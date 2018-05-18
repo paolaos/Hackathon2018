@@ -49,7 +49,7 @@ public class SolutionDaoImpl implements SolutionDao {
 
         // Try to retrieve date from the DB. If we fail, then we return null.
         try {
-            return session.createQuery("from Solutions").list();
+            return session.createQuery("from Solution").list();
         } catch (Exception e) {
             e.getStackTrace();
             return null;
