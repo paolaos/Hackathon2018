@@ -1,0 +1,47 @@
+package application.model;
+
+
+public class Solution {
+
+  private long exceptionFk;
+  private String id;
+  private long count;
+  private String description;
+
+
+  public long getExceptionFk() {
+    return exceptionFk;
+  }
+
+  public void setExceptionFk(long exceptionFk) {
+    this.exceptionFk = exceptionFk;
+  }
+
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+
+  public long getCount() {
+    return count;
+  }
+
+  public void setCount(long count) {
+    this.count = count;
+  }
+
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+}

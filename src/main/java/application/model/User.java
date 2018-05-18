@@ -3,50 +3,55 @@ package application.model;
 
 public class User {
 
-    private String idUserPk;
-    private String password;
-    private String email;
-    private String name;
-    private String role;
+  private String idUserPk;
+  private String password;
+  private String name;
+  private String role;
+  private String adUser;
 
-    public String getIdUserPk() {
+
+  public String getIdUserPk() {
     return idUserPk;
-    }
+  }
 
-    public void setIdUserPk(String idUserPk) {
+  public void setIdUserPk(String idUserPk) {
     this.idUserPk = idUserPk;
-    }
+  }
 
-    public String getPassword() {
+
+  public String getPassword() {
     return password;
-    }
+  }
 
-    public void setPassword(String password) {
+  public void setPassword(String password) {
     this.password = password;
-    }
+  }
 
-    public String getEmail() {
-    return email;
-    }
 
-    public void setEmail(String email) {
-    this.email = email;
-    }
-
-    public String getName() {
+  public String getName() {
     return name;
-    }
+  }
 
-    public void setName(String name) {
+  public void setName(String name) {
     this.name = name;
-    }
+  }
 
-    public String getRole() {
+
+  public String getRole() {
     return role;
-    }
+  }
 
-    public void setRole(String role) {
+  public void setRole(String role) {
     this.role = role;
-    }
+  }
+
+
+  public String getAdUser() {
+    return adUser;
+  }
+
+  public void setAdUser(String adUser) {
+    this.adUser = adUser;
+  }
 
 }
