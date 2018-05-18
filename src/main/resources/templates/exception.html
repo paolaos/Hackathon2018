@@ -177,10 +177,14 @@
                             <p>Propose solutions</p>
 
                             <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
-                                <div style="width: 100%; text-align: center; margin-top: 20px;">
-                                    <a href="#" class="btn btn-success btn-sm">Submit my solution</a>
-                                </div>
+                                <form th:action="@{/solution/add-solution}">
+                                    <input class="hidden" name="exceptionId" th:valiue="${exception.exceptionId}">
+                                    <input name="solution-id">
+                                    <textarea name="description" class="form-control" rows="3"></textarea>
+                                    <div style="width: 100%; text-align: center; margin-top: 20px;">
+                                        <button class="btn btn-success btn-sm">Submit my solution</button>
+                                    </div>
+                                </form>
                             </div>
 
                         </div>

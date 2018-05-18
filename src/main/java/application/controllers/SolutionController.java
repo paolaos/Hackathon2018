@@ -30,7 +30,6 @@ public class SolutionController {
     ExceptionService exceptionService;
 
     @RequestMapping(value = "/solution/add-solution")
-    @ResponseBody
     public String submitSolution(@RequestParam("exceptionId") Integer exceptionId,
                                  @RequestParam("solutionId") String solutionId,
                                  @RequestParam("description") String description,
@@ -41,8 +40,8 @@ public class SolutionController {
 
             if (exception == null) {
                 DialogMessageUtil.addRedirectMessage(redirectAttributes,
-                        "Excepción invalida.",
-                        "No se encontro la exception de está solución.",
+                        "Invalidad Exception Id.",
+                        "The exception id doesn't exists.",
                         "error");
                 return "redirect:/dashboard";
             }
@@ -58,9 +57,17 @@ public class SolutionController {
 
             solutionService.insert(solution);
         } catch (HibernateException e) {
-            return e.getMessage();
+            DialogMessageUtil.addRedirectMessage(redirectAttributes,
+                    "Error.",
+                    e.getMessage(),
+                    "error");
+            return "redirect:/dashboard";
         }
-        return "";
+        DialogMessageUtil.addRedirectMessage(redirectAttributes,
+                "Success!",
+                "You solution was added.",
+                "success");
+        return "redirect:/dashboard";
     }
 
 
