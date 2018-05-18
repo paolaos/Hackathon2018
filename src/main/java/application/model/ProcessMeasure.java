@@ -3,55 +3,23 @@ package application.model;
 
 public class ProcessMeasure {
 
-  private long indicatorFk;
-  private String workProcessFk;
-  private String name;
-  private double variance;
-  private double tolerance;
+    private ProcessMeasureId processMeasureId;
 
+    private Indicators indicator;
 
-  public long getIndicatorFk() {
-    return indicatorFk;
-  }
+    public ProcessMeasureId getProcessMeasureId() {
+        return processMeasureId;
+    }
 
-  public void setIndicatorFk(long indicatorFk) {
-    this.indicatorFk = indicatorFk;
-  }
+    public void setProcessMeasureId(ProcessMeasureId processMeasureId) {
+        this.processMeasureId = processMeasureId;
+    }
 
+    public Indicators getIndicator() {
+        return indicator;
+    }
 
-  public String getWorkProcessFk() {
-    return workProcessFk;
-  }
-
-  public void setWorkProcessFk(String workProcessFk) {
-    this.workProcessFk = workProcessFk;
-  }
-
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public double getVariance() {
-    return variance;
-  }
-
-  public void setVariance(double variance) {
-    this.variance = variance;
-  }
-
-
-  public double getTolerance() {
-    return tolerance;
-  }
-
-  public void setTolerance(double tolerance) {
-    this.tolerance = tolerance;
-  }
-
+    public void setIndicator(Indicators indicator) {
+        this.indicator = indicator;
+    }
 }

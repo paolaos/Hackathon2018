@@ -3,25 +3,27 @@ package application.model;
 
 public class WorkProcess {
 
-  private long indicatorId;
-  private String name;
+  private WorkProcessId workProcessId;
 
+  private Indicators indicator;
 
-  public long getIndicatorId() {
-    return indicatorId;
+  public WorkProcessId getWorkProcessId() {
+    return workProcessId;
   }
 
-  public void setIndicatorId(long indicatorId) {
-    this.indicatorId = indicatorId;
+  public void setWorkProcessId(WorkProcessId workProcessId) {
+    this.workProcessId = workProcessId;
+  }
+
+  public Indicators getIndicator() {
+    return indicator;
+  }
+
+  public void setIndicator(Indicators indicator) {
+    this.indicator = indicator;
   }
 
 
-  public String getName() {
-    return name;
-  }
 
-  public void setName(String name) {
-    this.name = name;
-  }
 
 }

@@ -3,45 +3,24 @@ package application.model;
 
 public class ProcessMeasureParticipant {
 
-  private long indicatorFk;
-  private String workProcessFk;
-  private String processMeasureFk;
-  private String userFk;
 
+    private ProcessMeasureParticipantId processMeasureParticipantId;
 
-  public long getIndicatorFk() {
-    return indicatorFk;
-  }
+    private ProcessMeasure processMeasure;
 
-  public void setIndicatorFk(long indicatorFk) {
-    this.indicatorFk = indicatorFk;
-  }
+    public ProcessMeasureParticipantId getProcessMeasureParticipantId() {
+        return processMeasureParticipantId;
+    }
 
+    public void setProcessMeasureParticipantId(ProcessMeasureParticipantId processMeasureParticipantId) {
+        this.processMeasureParticipantId = processMeasureParticipantId;
+    }
 
-  public String getWorkProcessFk() {
-    return workProcessFk;
-  }
+    public ProcessMeasure getProcessMeasure() {
+        return processMeasure;
+    }
 
-  public void setWorkProcessFk(String workProcessFk) {
-    this.workProcessFk = workProcessFk;
-  }
-
-
-  public String getProcessMeasureFk() {
-    return processMeasureFk;
-  }
-
-  public void setProcessMeasureFk(String processMeasureFk) {
-    this.processMeasureFk = processMeasureFk;
-  }
-
-
-  public String getUserFk() {
-    return userFk;
-  }
-
-  public void setUserFk(String userFk) {
-    this.userFk = userFk;
-  }
-
+    public void setProcessMeasure(ProcessMeasure processMeasure) {
+        this.processMeasure = processMeasure;
+    }
 }
