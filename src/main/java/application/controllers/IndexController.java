@@ -1,6 +1,11 @@
 package application.controllers;
 
+import application.core.indicator.service.IndicatorService;
 import application.core.user.service.UserService;
+import application.core.workprocess.service.WorkProcessService;
+import application.model.Indicators;
+import application.model.WorkProcess;
+import application.model.WorkProcessId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
