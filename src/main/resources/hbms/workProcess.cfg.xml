@@ -5,10 +5,10 @@
 <hibernate-mapping>
     <class name="application.model.WorkProcess" table="WORK_PROCESS" catalog="CODE_MERGERS">
         <composite-id name="workProcessId" class="application.model.WorkProcessId">
-            <key-property name="indicatorId" column="indicator_id"></key-property>
-            <key-property name="name" column="name"></key-property>
+            <key-property name="indicatorId" column="indicator_id"/>
+            <key-property name="name" column="name"/>
         </composite-id>
-        <many-to-one name="indicator" class="application.model.Indicators" column="indicator_id" lazy="false"/>
+        <many-to-one name="indicator" class="application.model.Indicators" column="indicator_id" lazy="false" insert="false" update="false"/>
     </class>
 
 </hibernate-mapping>

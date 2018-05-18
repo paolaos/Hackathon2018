@@ -1,15 +1,15 @@
 package application.model;
 
+import java.io.Serializable;
+
 /**
  * Created by alexiaborchgrevink on 5/17/18.
  */
-public class ProcessMeasureId {
+public class ProcessMeasureId implements Serializable {
 
     private long indicatorFk;
     private String workProcessFk;
     private String name;
-    private double variance;
-    private double tolerance;
 
 
     public long getIndicatorFk() {
@@ -38,21 +38,4 @@ public class ProcessMeasureId {
         this.name = name;
     }
 
-
-    public double getVariance() {
-        return variance;
-    }
-
-    public void setVariance(double variance) {
-        this.variance = variance;
-    }
-
-
-    public double getTolerance() {
-        return tolerance;
-    }
-
-    public void setTolerance(double tolerance) {
-        this.tolerance = tolerance;
-    }
 }

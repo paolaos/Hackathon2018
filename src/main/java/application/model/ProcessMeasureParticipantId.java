@@ -1,9 +1,11 @@
 package application.model;
 
+import java.io.Serializable;
+
 /**
  * Created by alexiaborchgrevink on 5/17/18.
  */
-public class ProcessMeasureParticipantId {
+public class ProcessMeasureParticipantId implements Serializable {
 
     private long indicatorFk;
     private String workProcessFk;
