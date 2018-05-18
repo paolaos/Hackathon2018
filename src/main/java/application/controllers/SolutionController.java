@@ -1,10 +1,10 @@
 package application.controllers;
 
 import application.core.exception.service.ExceptionService;
+import application.core.processmeasureparticipant.service.ProcessMeasureParticipantService;
 import application.core.solution.service.SolutionService;
+import application.model.*;
 import application.model.Exception;
-import application.model.Solution;
-import application.model.SolutionId;
 import application.security.AppUser;
 import application.util.DialogMessageUtil;
 import org.hibernate.HibernateException;
@@ -28,7 +28,8 @@ public class SolutionController {
     @Autowired
     ExceptionService exceptionService;
 
-
+    @Autowired
+    ProcessMeasureParticipantService processMeasureParticipantService;
 
     @RequestMapping(value = "/solution/add-solution")
     public String submitSolution(@RequestParam("exceptionId") Integer exceptionId,
@@ -94,10 +95,27 @@ public class SolutionController {
         try {
             Exception exception = exceptionService.findById(exceptionId);
 
-        } catch (java.lang.Exception e) {
+            Integer count = processMeasureParticipantService.countParticipantsByProcessMeasure(exception.getProcessMeasure().getProcessMeasureId());
 
+            if(count >= 1) {
+                exception.setStatus("INDECISIVE");
+            } else {
+                exception.setStatus("CONFIRMED");
+            }
+            exceptionService.update(exception);
+
+        } catch (java.lang.Exception e) {
+            DialogMessageUtil.addRedirectMessage(redirectAttributes,
+                    "Error.",
+                    "Your vote was not cast.",
+                    "error");
+            return "redirect:/exception/"+exceptionId;
         }
-        return "";
+        DialogMessageUtil.addRedirectMessage(redirectAttributes,
+                "Success!",
+                "Your vote was counted!",
+                "success");
+        return "redirect:/index";
     }
 }
 

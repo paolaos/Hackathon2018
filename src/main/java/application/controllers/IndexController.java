@@ -36,6 +36,8 @@ public class IndexController {
         }
         model.addAttribute("users", userService.getAllUsers());
         model.addAttribute("exceptions", exceptionService.getAllExceptions("PENDING"));
+        model.addAttribute("exceptionsInd", exceptionService.getAllExceptions("INDECISIVE"));
+        model.addAttribute("exceptionsConf", exceptionService.getAllExceptions("CONFIRMED"));
         return "dashboard";
     }
 }
