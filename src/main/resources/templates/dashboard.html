@@ -21,14 +21,6 @@
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 style="color: #000c23;font-weight: bold;">Incidents Dashboard</h2>
-                    <th:block th:with="auth=${#authentication.getPrincipal()}">
-                        Bienvenido/a <b th:text="auth ? ${auth.realName} : ${#authentication.getName()}"></b>
-                    </th:block>
-                </div>
-            </div>
             <!-- /. ROW  -->
             <hr/>
             <div class="row">
@@ -70,7 +62,7 @@
                     </div>
                 </div>
 
-                <th:block th:each="exception:${exceptions}">
+                <th:block th:each="exception:${exceptionsInd}">
                     <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="panel panel-back noti-box">
 
@@ -100,7 +92,7 @@
                     </div>
                 </div>
 
-                <th:block th:each="exception:${exceptions}">
+                <th:block th:each="exception:${exceptionsConf}">
                     <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="panel panel-back noti-box">
 

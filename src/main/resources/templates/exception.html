@@ -117,11 +117,14 @@
                                                         <p style="margin: 0px !important; padding: 0px !important " th:text="${recommendSolution.solutionId.id}"></p>
                                                         <p style="margin: 0px !important; padding: 0px !important " th:text="${recommendSolution.description}"></p>
                                                     </div>
+                                                    <div style="width: 20%; text-align: right;">
+                                                        <form th:action="@{/solution/vote}">
+                                                            <input class="hidden" name="exceptionId" th:value="${exception.exceptionId}"/>
+                                                            <button style="margin: 0px auto;" type="submit" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </th:block>
-                                                <div style="width: 20%; text-align: right;">
-                                                    <button style="margin: 0px auto;" type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
-                                                    </button>
-                                                </div>
                                             </div>
                                         </td>
                                     </tr>
@@ -143,8 +146,11 @@
                                                         <p style="margin: 0px !important; padding: 0px !important " th:text="${solution.description}"></p>
                                                     </div>
                                                     <div style="width: 20%; text-align: right;">
-                                                        <button style="margin: 0px auto;" type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
-                                                        </button>
+                                                        <form th:action="@{/solution/vote}">
+                                                            <input class="hidden" name="exceptionId" th:value="${exception.exceptionId}"/>
+                                                            <button style="margin: 0px auto;" type="submit" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </td>
