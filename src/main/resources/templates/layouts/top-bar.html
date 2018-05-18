@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+        xmlns="http://www.w3.org/1999/xhtml">>
+<head>
+</head>
+<body>
+<th:block th:with="auth=${#authentication.getPrincipal()}">
+    <h1 th:text="auth ? 'Code Merger - ' + ${auth.realName} : ${#authentication.getName()}"></h1>
+</th:block>
+<th:block th:fragment="default-left-bar">
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img th:th:src="@{assets/img/find_user.png}" class="user-image img-responsive"/>
+                </li>
+
+
+                <li>
+                    <a class="active-menu" th:href="@{index.html}"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a th:href="@{layouts/ui.html}"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
+                </li>
+                <li>
+                    <a th:href="@{layouts/tab-panel.html}"><i class="fa fa-qrcode fa-3x"></i> Tabs &amp; Panels</a>
+                </li>
+                <li>
+                    <a th:href="@{layouts/chart.html}"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
+                </li>
+                <li>
+                    <a th:href="@{layouts/table.html}"><i class="fa fa-table fa-3x"></i> Table Examples</a>
+                </li>
+                <li>
+                    <a th:href="@{layouts/form.html}"><i class="fa fa-edit fa-3x"></i> Forms </a>
+                </li>
+
+
+                <li>
+                    <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">Second Level Link</a>
+                        </li>
+                        <li>
+                            <a href="#">Second Level Link</a>
+                        </li>
+                        <li>
+                            <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="#">Third Level Link</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level Link</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level Link</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a th:href="@{layouts/blank.html}"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+</th:block>
+</body>
+</html>

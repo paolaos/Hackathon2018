@@ -12,7 +12,7 @@ public class IndexController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = {"/","/index"})
     public String getIndex(Model model) {
         // Retrieve all users and add it as a model attribute.
         model.addAttribute("users", userService.getAllUsers());
