@@ -1,9 +1,11 @@
 package application.model;
 
+import java.io.Serializable;
+
 /**
  * Created by alexiaborchgrevink on 5/17/18.
  */
-public class WorkProcessId {
+public class WorkProcessId implements Serializable {
 
     private long indicatorId;
     private String name;
