@@ -7,9 +7,14 @@
         <composite-id name="solutionId" class="application.model.SolutionId">
             <key-property name="exceptionFk" column="exception_fk"></key-property>
             <key-property name="id" column="id"></key-property>
-            <key-property name="count" column="count"></key-property>
-            <key-property name="description" column="description"></key-property>
         </composite-id>
+        <property name="count">
+            <column name="count"/>
+        </property>
+        <property name="description">
+            <column name="description"/>
+        </property>
+        <property name="description" column="description"></property>
         <many-to-one name="exception" class="application.model.Exception" column="exception_fk" lazy="false" insert="false" update="false"/>
     </class>
 </hibernate-mapping>
