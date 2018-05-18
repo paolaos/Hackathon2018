@@ -3,6 +3,18 @@
 <head>
     <th:block th:replace="layouts/default-head :: default-head('Exception')"></th:block>
     <script th:src="@{/js/add-user.js}"></script>
+    <style type="text/css">
+        .color-verde{
+            color: #4dd84d;
+        }
+        .color-rojo{
+            color: #e45454;
+        }
+        .color-amarillo{
+            color: #cccc0d;
+        }
+
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -16,9 +28,15 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 style="color: #000c23;font-weight: bold;">Exception Details</h2>
+                    <div style="display: inline-flex !important;">
+                        <h2 style="color: #000c23;font-weight: bold;">Exception Details -</h2>
+                        <h2 style="font-weight: bold;" class="color-rojo"> Pending</h2>
+                        <h2 style="font-weight: bold;" class="color-amarillo"> Awaiting</h2>
+                        <h2 style="font-weight: bold;" class="color-verde"> Solved</h2>
+                    </div>
                 </div>
             </div>
+
             <hr/>
             <!-- /. ROW  -->
             <div class="row">
