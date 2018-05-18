@@ -1,11 +1,11 @@
 (function ($) {
-    var prog = {
-        progImageSource: "https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif",
+    var proc = {
+        procImageSource: "https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif",
 
         getSuggestionImage: function () {
             var suggestedImage = document.createElement('img');
-            suggestedImage.class = 'prog-image-suggestion';
-            suggestedImage.src = progImageSource;
+            suggestedImage.class = 'proc-image-suggestion';
+            suggestedImage.src = procImageSource;
             return suggestedImage;
         },
 
@@ -49,7 +49,7 @@
         }
     }
     $(document).ready(function () {
-        prog.searchForAction();
+        proc.searchForAction();
     });
 
 }(jQuery));
