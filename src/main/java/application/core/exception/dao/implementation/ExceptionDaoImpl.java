@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Queue;
 
 /**
  * Created by alexiaborchgrevink on 5/17/18.
@@ -34,7 +33,9 @@ public class ExceptionDaoImpl implements ExceptionDao {
 
         // Try to retrieve date from the DB. If we fail, then we return null.
         try {
-            return session.get(Exception.class, id);
+            Query query = session.createQuery("from Exception E join fetch E.processMeasure where E.id = :id");
+            query.setParameter("id", id);
+            return (Exception)query.getSingleResult();
         } catch (java.lang.Exception e) {
             e.printStackTrace();
             return null;

@@ -2,6 +2,7 @@ package application.core.processmeasureparticipant.service.implementation;
 
 import application.core.processmeasureparticipant.dao.ProcessMeasureParticipantDao;
 import application.core.processmeasureparticipant.service.ProcessMeasureParticipantService;
+import application.model.ProcessMeasureId;
 import application.model.ProcessMeasureParticipant;
 import application.model.ProcessMeasureParticipantId;
 import org.hibernate.HibernateException;
@@ -39,5 +40,10 @@ public class ProcessMeasureParticipantServiceImpl implements ProcessMeasureParti
     @Override
     public void delete(ProcessMeasureParticipant processMeasureParticipant) throws HibernateException {
         this.processMeasureParticipantDao.delete(processMeasureParticipant);
+    }
+
+    @Override
+    public List<ProcessMeasureParticipant> getParticipantsByProcessMeasure(ProcessMeasureId processMeasureId){
+        return this.processMeasureParticipantDao.getParticipantByProcessMeasure(processMeasureId);
     }
 }

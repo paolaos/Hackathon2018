@@ -2,6 +2,7 @@ package application.core.exception.dao;
 
 import application.model.Exception;
 import application.model.ExceptionStatusEnum;
+import application.model.ProcessMeasure;
 import org.hibernate.HibernateException;
 
 import java.util.List;
