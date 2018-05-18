@@ -45,8 +45,8 @@
                                 <div class="text-box">
                                     <p class="main-text" style="word-wrap: break-word;" th:text="${exception.workProcessFk}"></p>
                                     <p class="text-muted" style="word-wrap: break-word;" th:text="${exception.processMeasureFk}"></p>
-                                    <p class="text-muted" style="font-size: 20px;font-weight: bold;color: #428bca; word-wrap: break-word;">Deadline</p>
-                                    <label style="color: #f85858;font-size: 20px;word-wrap: break-word;" th:text="${#dates.format(exception.endTime, 'dd-MM-yyyy HH:mm')}"></label>
+                                    <p class="text-muted" style="word-wrap: break-word;">Deadline</p>
+                                    <label style="color: #e2574c;font-size: 20px;word-wrap: break-word;" th:text="${#dates.format(exception.endTime, 'dd-MM-yyyy HH:mm')}"></label>
                                 </div>
                             </a>
                         </div>
