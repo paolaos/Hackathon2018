@@ -28,6 +28,9 @@
         <property name="value_kpi">
             <column name="value_kpi" sql-type="double" not-null="true"/>
         </property>
+        <property name="status">
+            <column name="status" sql-type="varchar(255)" not-null="true"/>
+        </property>
         <many-to-one name="processMeasure" class="application.model.ProcessMeasure" insert="false" update="false">
             <column name="indicator_fk"/>
             <column name="work_process_fk"/>
