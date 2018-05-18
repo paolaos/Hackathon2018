@@ -2,6 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <th:block th:replace="layouts/default-head :: default-head('Inicio')"></th:block>
+    <style type="text/css">
+        .photo-warnign{
+            height: 40px;
+            width: 40px;
+            border-radius: 0%;
+            float: left;
+            margin: 5% !important;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -27,9 +36,11 @@
                 <th:block th:each="exception:${exceptions}">
                     <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="panel panel-back noti-box">
-                        <span class="icon-box bg-color-red set-icon">
+                       <!-- <span class="icon-box bg-color-red set-icon">
                             <i class="glyphicon glyphicon-info-sign"></i>
-                        </span>
+                        </span>-->
+                            <img th:src="@{/images/warning.png}" class="user-image img-responsive photo-warnign"/>
+
                             <a class="anchor-no-decorate" th:href="@{'/exception/'+${exception.exceptionId}}">
                                 <div class="text-box">
                                     <p class="main-text" th:text="${exception.workProcessFk}"></p>
