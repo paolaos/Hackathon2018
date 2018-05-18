@@ -88,4 +88,15 @@ public class ProcessMeasureParticipantDaoImpl implements ProcessMeasureParticipa
             return null;
         }
     }
+
+    @Override
+    public Integer countParticipantsByProcessMeasure(ProcessMeasureId processMeasureId) {
+        Session session = factory.getCurrentSession();
+        try {
+            Query query = session.createQuery("select count(*) from ProcessMeasureParticipant");
+            return ((Long) query.iterate().next()).intValue();
+        } catch(Exception e) {
+            return null;
+        }
+    }
 }

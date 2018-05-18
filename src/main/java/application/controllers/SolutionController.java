@@ -5,9 +5,11 @@ import application.core.solution.service.SolutionService;
 import application.model.Exception;
 import application.model.Solution;
 import application.model.SolutionId;
+import application.security.AppUser;
 import application.util.DialogMessageUtil;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,8 +43,10 @@ public class SolutionController {
                         "Invalidad Exception Id.",
                         "The exception id doesn't exists.",
                         "error");
-                return "redirect:/dashboard";
+                return "redirect:/index";
             }
+
+            AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
             SolutionId newSolutionId = new SolutionId();
             newSolutionId.setExceptionFk(exceptionId);
@@ -53,19 +57,19 @@ public class SolutionController {
             solution.setDescription(description);
             solution.setCount(1);
 
-            solutionService.insert(solution);
+            solutionService.insert(solution, appUser);
         } catch (HibernateException e) {
             DialogMessageUtil.addRedirectMessage(redirectAttributes,
                     "Error.",
                     e.getMessage(),
                     "error");
-            return "redirect:/dashboard";
+            return "redirect:/index";
         }
         DialogMessageUtil.addRedirectMessage(redirectAttributes,
                 "Success!",
                 "You solution was added.",
                 "success");
-        return "redirect:/dashboard";
+        return "redirect:/exception/"+exceptionId;
     }
 
 
