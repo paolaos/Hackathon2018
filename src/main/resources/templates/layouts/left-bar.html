@@ -13,6 +13,9 @@
                     <img th:src="@{/images/user.png}" class="user-image img-circle" style="width:125px!important; height:auto!important; border-radius:50%"/>
                     <!-- picture -->
                     <div style="margin-top: 1px; margin-bottom: 8px; color: #fff">
+                        <p style="margin: 0px !important;">
+                            Welcome,
+                        </p>
                         <th:block th:with="auth=${#authentication.getPrincipal()}">
                             <b th:text="auth ? ${auth.realName} : ${#authentication.getName()}"></b>
                         </th:block>
