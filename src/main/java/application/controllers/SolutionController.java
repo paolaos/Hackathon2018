@@ -8,6 +8,8 @@ import application.model.SolutionId;
 import application.util.DialogMessageUtil;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +39,7 @@ public class SolutionController {
 
             Exception exception = exceptionService.findById(exceptionId);
 
-            if(exception == null) {
+            if (exception == null) {
                 DialogMessageUtil.addRedirectMessage(redirectAttributes,
                         "Excepción invalida.",
                         "No se encontro la exception de está solución.",
@@ -67,4 +69,14 @@ public class SolutionController {
         return null;
     }
 
+    @RequestMapping(value = "/solution/get/{id}")
+    @ResponseBody
+    public Object getExceptionSolution(@PathVariable("id") long exceptiopnId,
+                                       RedirectAttributes redirectAttributes,
+                                       Model model) {
+
+        Solution solution = solutionService.getAllSolutions().get(0);
+        return new ResponseEntity<Object>(solution.getDescription(), HttpStatus.OK);
+    }
 }
+
