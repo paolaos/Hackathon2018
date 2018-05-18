@@ -1,5 +1,6 @@
 package application.core.processmeasureparticipant.dao;
 
+import application.model.ProcessMeasureId;
 import application.model.ProcessMeasureParticipant;
 import application.model.ProcessMeasureParticipantId;
 import org.hibernate.HibernateException;
@@ -38,5 +39,7 @@ public interface ProcessMeasureParticipantDao {
      * @throws HibernateException Error deleting a new ProcessMeasureParticipant.
      */
     void delete(ProcessMeasureParticipant processMeasureParticipant) throws HibernateException;
+
+    List<ProcessMeasureParticipant> getParticipantByProcessMeasure(ProcessMeasureId processMeasureId);
 
 }

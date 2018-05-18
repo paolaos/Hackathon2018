@@ -1,5 +1,6 @@
 package application.core.processmeasureparticipant.service;
 
+import application.model.ProcessMeasureId;
 import application.model.ProcessMeasureParticipant;
 import application.model.ProcessMeasureParticipantId;
 import org.hibernate.HibernateException;
@@ -38,4 +39,6 @@ public interface ProcessMeasureParticipantService {
      * @throws HibernateException Error deleting a new ProcessMeasureParticipant.
      */
     void delete(ProcessMeasureParticipant processMeasureParticipant) throws HibernateException;
+
+    public List<ProcessMeasureParticipant> getParticipantsByProcessMeasure(ProcessMeasureId processMeasureId);
 }

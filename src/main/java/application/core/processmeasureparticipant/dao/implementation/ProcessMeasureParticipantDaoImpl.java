@@ -1,6 +1,7 @@
 package application.core.processmeasureparticipant.dao.implementation;
 
 import application.core.processmeasureparticipant.dao.ProcessMeasureParticipantDao;
+import application.model.ProcessMeasureId;
 import application.model.ProcessMeasureParticipant;
 import application.model.ProcessMeasureParticipantId;
 import org.hibernate.HibernateException;
@@ -8,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.hibernate.query.Query;
+
 
 import java.util.List;
 
@@ -64,5 +67,25 @@ public class ProcessMeasureParticipantDaoImpl implements ProcessMeasureParticipa
     @Override
     public void delete(ProcessMeasureParticipant processMeasureParticipant) throws HibernateException {
         this.factory.getCurrentSession().delete(processMeasureParticipant);
+    }
+
+    @Override
+    public List<ProcessMeasureParticipant> getParticipantByProcessMeasure(ProcessMeasureId processMeasureId) {
+        // Almost always use getCurrentSession, instead of openSession.
+        // Only in very odd cases, should the latter be used.
+        // For more information, read the following docs.
+        // http://docs.jboss.org/hibernate/core/3.3/reference/en/html/transactions.html#transactions-basics-uow
+        Session session = factory.getCurrentSession();
+
+        // Try to retrieve date from the DB. If we fail, then we return null.
+        try {
+            Query query = session.createQuery("from ProcessMeasureParticipant PM join fetch ProcessMeasure where PM.processMeasureId =:processMeasureId");
+            query.setParameter("processMeasureId", processMeasureId);
+            return query.list();
+
+        } catch (Exception e) {
+            e.getStackTrace();
+            return null;
+        }
     }
 }
