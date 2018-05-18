@@ -10,7 +10,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li class="text-center" style="background-color: #000c23 !important;">
-                    <img th:src="@{/images/foto-pao.jpg}" class="user-image img-circle" style="width:125px!important; height:auto!important; border-radius:50%"/>
+                    <img th:src="@{/images/user.png}" class="user-image img-circle" style="width:125px!important; height:auto!important; border-radius:50%"/>
                     <!-- picture -->
                     <div style="margin-top: 1px; margin-bottom: 8px; color: #fff">
                         Paola Ortega Saborio
@@ -20,13 +20,10 @@
                         <a th:href="@{/logout}"><img th:src="@{/images/logout.png}" style="width: 15px; height:auto; "/></a>
                     </div>
 
-
                 </li>
 
-
-
                 <li>
-                    <a class="active-menu" th:href="@{/index}"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    <a class="active-menu" th:href="@{/index}"><i class="fa fa-dashboard fa-3x"></i>Incidents Dashboard</a>
                 </li>
                 <!--li>
                     <a th:href="@{layouts/ui.html}"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
@@ -41,13 +38,11 @@
                     <a th:href="@{index}"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
                 </li-->
                 <li>
-                    <a th:href="@{layouts/table.html}"><i class="fa fa-table fa-3x"></i> Previous Exceptions </a>
+                    <a th:href="@{/analytics.html}"><i class="fa fa-table fa-3x"></i>Analytics Dashboard</a>
                 </li>
                 <li>
-                    <a th:href="@{/input.html}"><i class="fa fa-edit fa-3x"></i> Generate Exception </a>
+                    <a th:href="@{/input.html}"><i class="fa fa-edit fa-3x"></i>Generate Incident</a>
                 </li>
-
-
 
                 <!--li>
                     <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
