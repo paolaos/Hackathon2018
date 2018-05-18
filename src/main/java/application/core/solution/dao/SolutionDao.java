@@ -21,12 +21,16 @@ public interface SolutionDao {
      */
     Solution findById(SolutionId id);
 
+    Solution getRecommendedSolution(long exceptionId);
+
     /**
      * Return all solutions from our database.
      *
      * @return List of solution.
      */
     List<Solution> getAllSolutions();
+
+    List<Solution> getAllSolutionsByException(long exceptionId);
 
     /**
      * Insert a new solution.

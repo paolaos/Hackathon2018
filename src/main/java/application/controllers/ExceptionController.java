@@ -4,8 +4,11 @@ import application.conf.HibernateConfiguration;
 import application.core.exception.service.ExceptionService;
 import application.core.processmeasureparticipant.service.ProcessMeasureParticipantService;
 import application.core.solution.service.SolutionService;
+import application.core.user.service.UserService;
 import application.model.Exception;
 import application.model.ProcessMeasureId;
+import application.model.ProcessMeasureParticipant;
+import application.model.ProcessMeasureParticipantId;
 import application.util.DialogMessageUtil;
 import com.mysql.cj.core.util.StringUtils;
 import org.hibernate.HibernateException;
@@ -28,6 +31,9 @@ public class ExceptionController {
     @Autowired
     SolutionService solutionService;
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping(value = "/exception/{id}")
     public String getException(@PathVariable("id") long exceptiopnId,
                            RedirectAttributes redirectAttributes,
@@ -41,12 +47,45 @@ public class ExceptionController {
         ProcessMeasureId processMeasureId = exception.getProcessMeasure().getProcessMeasureId();
 
         model.addAttribute("exception", exception);
+        model.addAttribute("allUsers", userService.getAllUsers());
         model.addAttribute("users", processMeasureParticipantService.getParticipantsByProcessMeasure(processMeasureId));
-        //model.addAttribute("solution", solutionService.);
+        model.addAttribute("recommendSolution", solutionService.getRecommendedSolution(exceptiopnId));
+        model.addAttribute("solutions", solutionService.getAllSolutionsByException(exceptiopnId));
 
         return "exception";
     }
 
+    @RequestMapping(value = "/exception/add-user")
+    public String addUserToException(@RequestParam("userId") String userId,
+                                     @RequestParam("exceptionId") long exception,
+                                     RedirectAttributes redirectAttributes){
+        try {
+            Exception exception1 = exceptionService.findById(exception);
+            ProcessMeasureParticipant processMeasureParticipant = new ProcessMeasureParticipant();
+            ProcessMeasureParticipantId processMeasureParticipantId = new ProcessMeasureParticipantId();
+            processMeasureParticipantId.setIndicatorFk(exception1.getIndicatorFk());
+            processMeasureParticipantId.setProcessMeasureFk(exception1.getProcessMeasureFk());
+            processMeasureParticipantId.setWorkProcessFk(exception1.getWorkProcessFk());
+            processMeasureParticipantId.setUserFk(userId);
+
+            processMeasureParticipant.setProcessMeasureParticipantId(processMeasureParticipantId);
+
+            processMeasureParticipantService.insert(processMeasureParticipant);
+
+        } catch (java.lang.Exception e) {
+            DialogMessageUtil.addRedirectMessage(redirectAttributes,
+                    "Error!",
+                    "This user is already a participant.",
+                    "error");
+            return "redirect:/exception/"+exception;
+        }
+        DialogMessageUtil.addRedirectMessage(redirectAttributes,
+                "Success!",
+                "The user was added successfully.",
+                "success");
+        return "redirect:/exception/"+exception;
+    }
+  
     @RequestMapping(value="/exception/insert", method= RequestMethod.POST)
     @ResponseBody
     public String insertException(@ModelAttribute("manualException") Exception exception,

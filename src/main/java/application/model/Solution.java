@@ -7,6 +7,7 @@ public class Solution {
 
     private long count;
     private String description;
+    private Integer rank;
 
   private Exception exception;
 
@@ -40,5 +41,13 @@ public class Solution {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
     }
 }
