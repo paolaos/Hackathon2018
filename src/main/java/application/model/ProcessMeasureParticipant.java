@@ -8,6 +8,8 @@ public class ProcessMeasureParticipant {
 
     private ProcessMeasure processMeasure;
 
+    private User user;
+
     public ProcessMeasureParticipantId getProcessMeasureParticipantId() {
         return processMeasureParticipantId;
     }
@@ -22,5 +24,13 @@ public class ProcessMeasureParticipant {
 
     public void setProcessMeasure(ProcessMeasure processMeasure) {
         this.processMeasure = processMeasure;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
