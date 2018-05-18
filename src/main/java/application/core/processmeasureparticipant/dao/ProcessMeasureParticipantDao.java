@@ -42,4 +42,6 @@ public interface ProcessMeasureParticipantDao {
 
     List<ProcessMeasureParticipant> getParticipantByProcessMeasure(ProcessMeasureId processMeasureId);
 
+    Integer countParticipantsByProcessMeasure(ProcessMeasureId processMeasureId);
+
 }

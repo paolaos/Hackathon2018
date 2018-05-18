@@ -6,6 +6,7 @@ import application.model.VoteId;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,19 @@ public class VoteDaoImpl implements VoteDao {
             return session.get(Vote.class, id);
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Integer countVotesByProcessMeasure(VoteId voteId) {
+        Session session = factory.getCurrentSession();
+        try {
+            Query query = session.createQuery("select count(*) from Vote V where V.voteId.exceptionFk = :exceptionFk and V.voteId.solutionFk = :solutionFk");
+            query.setParameter("exceptionFk", voteId.getExceptionFk());
+            query.setParameter("solutionFk", voteId.getSolutionFk());
+            return ((Long) query.iterate().next()).intValue();
+        } catch (Exception e) {
             return null;
         }
     }

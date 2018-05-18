@@ -178,8 +178,8 @@
 
                             <div class="form-group">
                                 <form th:action="@{/solution/add-solution}">
-                                    <input class="hidden" name="exceptionId" th:valiue="${exception.exceptionId}">
-                                    <input name="solution-id">
+                                    <input class="hidden" name="exceptionId" th:value="${exception.exceptionId}"/>
+                                    <input name="solutionId"/>
                                     <textarea name="description" class="form-control" rows="3"></textarea>
                                     <div style="width: 100%; text-align: center; margin-top: 20px;">
                                         <button class="btn btn-success btn-sm">Submit my solution</button>

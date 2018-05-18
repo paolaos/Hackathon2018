@@ -3,6 +3,7 @@ package application.controllers;
 import application.conf.HibernateConfiguration;
 import application.core.exception.service.ExceptionService;
 import application.core.processmeasureparticipant.service.ProcessMeasureParticipantService;
+import application.core.solution.service.SolutionService;
 import application.model.Exception;
 import application.model.ProcessMeasureId;
 import application.util.DialogMessageUtil;
@@ -24,6 +25,9 @@ public class ExceptionController {
     @Autowired
     ProcessMeasureParticipantService processMeasureParticipantService;
 
+    @Autowired
+    SolutionService solutionService;
+
     @RequestMapping(value = "/exception/{id}")
     public String getException(@PathVariable("id") long exceptiopnId,
                            RedirectAttributes redirectAttributes,
@@ -38,6 +42,7 @@ public class ExceptionController {
 
         model.addAttribute("exception", exception);
         model.addAttribute("users", processMeasureParticipantService.getParticipantsByProcessMeasure(processMeasureId));
+        //model.addAttribute("solution", solutionService.);
 
         return "exception";
     }

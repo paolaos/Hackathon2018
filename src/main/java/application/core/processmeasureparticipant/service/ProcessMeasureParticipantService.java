@@ -40,5 +40,7 @@ public interface ProcessMeasureParticipantService {
      */
     void delete(ProcessMeasureParticipant processMeasureParticipant) throws HibernateException;
 
-    public List<ProcessMeasureParticipant> getParticipantsByProcessMeasure(ProcessMeasureId processMeasureId);
+    List<ProcessMeasureParticipant> getParticipantsByProcessMeasure(ProcessMeasureId processMeasureId);
+
+    Integer countParticipantsByProcessMeasure(ProcessMeasureId processMeasureId);
 }
