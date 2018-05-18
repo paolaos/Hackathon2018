@@ -15,6 +15,9 @@
             <column name="work_process_fk"/>
             <column name="process_measure_fk"/>
         </many-to-one>
+        <many-to-one name="user" class="application.model.User" insert="false" update="false">
+            <column name="user_fk"></column>
+        </many-to-one>
     </class>
 
 </hibernate-mapping>

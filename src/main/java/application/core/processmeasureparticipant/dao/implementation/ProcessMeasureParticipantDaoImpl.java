@@ -52,7 +52,7 @@ public class ProcessMeasureParticipantDaoImpl implements ProcessMeasureParticipa
 
         // Try to retrieve date from the DB. If we fail, then we return null.
         try {
-            return session.createQuery("from ProcessMeasureParticipant").list();
+            return session.createQuery("from ProcessMeasureParticipant join fetch ProcessMeasure PM where PM.processMeasureId = ").list();
         } catch (Exception e) {
             e.getStackTrace();
             return null;
@@ -79,7 +79,7 @@ public class ProcessMeasureParticipantDaoImpl implements ProcessMeasureParticipa
 
         // Try to retrieve date from the DB. If we fail, then we return null.
         try {
-            Query query = session.createQuery("from ProcessMeasureParticipant PM join fetch ProcessMeasure where PM.processMeasureId =:processMeasureId");
+            Query query = session.createQuery("from ProcessMeasureParticipant PM join fetch PM.processMeasure join fetch PM.user where PM.processMeasure.processMeasureId =:processMeasureId");
             query.setParameter("processMeasureId", processMeasureId);
             return query.list();
 

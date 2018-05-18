@@ -44,4 +44,5 @@ public interface ExceptionService {
      * @throws HibernateException Error deleting a new exception.
      */
     void delete(Exception exception) throws HibernateException;
+
 }
