@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <th:block th:replace="layouts/default-head :: default-head('Inicio')"></th:block>
+</head>
+<body>
+<div id="wrapper">
+    <th:block th:replace="layouts/mobile-menu :: mobile-menu"></th:block>
+
+    <!-- /. NAV TOP  -->
+    <th:block th:replace="layouts/left-bar :: default-left-bar"></th:block>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color: #000c23;font-weight: bold;">Generate Incident</h2>
+                </div>
+            </div>
+            <hr/>
+            <!-- /. ROW  -->
+            <form  >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label style="font-size: 20px; ">Deadline:</label>
+                            <input style="font-size: 20px; color: #ff6348;" class="light-text"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Work process:</label>
+                            <input class="light-text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Process measure:</label>
+                            <input class="light-text" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Daily rate:</label>
+                            <input class="light-text" style="color: #ff6348;" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tolerance: </label>
+                            <input class="light-text" />
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Priority: </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox"/> Low
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox"/> Medium
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox"/> High
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Comment: </label>
+                            <textarea name="description" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div style="width: 100%; text-align: center; margin-top: 20px;">
+                        <button class="btn btn-success btn-lg">Generate exception</button>
+                    </div>
+                </div>
+            </form>
+            <!-- /. ROW  -->
+
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+
+</body>
+</html>

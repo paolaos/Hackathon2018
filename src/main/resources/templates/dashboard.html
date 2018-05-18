@@ -23,7 +23,7 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Dashboard</h2>
+                    <h2 style="color: #000c23;font-weight: bold;">Incidents Dashboard</h2>
                     <th:block th:with="auth=${#authentication.getPrincipal()}">
                         Bienvenido/a <b th:text="auth ? ${auth.realName} : ${#authentication.getName()}"></b>
                     </th:block>
@@ -43,10 +43,10 @@
 
                             <a class="anchor-no-decorate" th:href="@{'/exception/'+${exception.exceptionId}}">
                                 <div class="text-box">
-                                    <p class="main-text" th:text="${exception.workProcessFk}"></p>
-                                    <p class="text-muted" th:text="${exception.processMeasureFk}"></p>
-                                    <p class="text-muted">Deadline</p>
-                                    <label th:text="${#dates.format(exception.endTime, 'dd-MM-yyyy HH:mm')}"></label>
+                                    <p class="main-text" style="word-wrap: break-word;" th:text="${exception.workProcessFk}"></p>
+                                    <p class="text-muted" style="word-wrap: break-word;" th:text="${exception.processMeasureFk}"></p>
+                                    <p class="text-muted" style="word-wrap: break-word;">Deadline</p>
+                                    <label style="color: #e2574c;font-size: 20px;word-wrap: break-word;" th:text="${#dates.format(exception.endTime, 'dd-MM-yyyy HH:mm')}"></label>
                                 </div>
                             </a>
                         </div>
@@ -54,78 +54,7 @@
                 </th:block>
             </div>
             <!-- /. ROW  -->
-            <hr/>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 no-float">
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Responsive Table Example
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                        <th>User No.</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>100090</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>100090</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                        <td>100090</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>100090</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>100090</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                        <td>100090</td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
             <!-- /. ROW  -->
         </div>
         <!-- /. PAGE INNER  -->

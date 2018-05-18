@@ -1,55 +1,41 @@
 (function ($) {
+    var procImageSource = "https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif";
     var proc = {
-        procImageSource: "https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif",
-
         getSuggestionImage: function () {
-            var suggestedImage = document.createElement('img');
+            var suggestedImage = document.createElement('IMG');
             suggestedImage.class = 'proc-image-suggestion';
             suggestedImage.src = procImageSource;
+            suggestedImage.style.height = "100px";
             return suggestedImage;
         },
 
-        recommendedSolution: function (exception) {
-            var bestSolution = "Not found solution for this exception";
+        recommendedSolution: function (exception, e) {
+            var bestSolution = "";
             $.ajax({
                 type: 'GET',
-                url: '/exception/getSolution',
-                data: {
-                    id: exception,
-                },
-                dataType: 'json',
+                url: '/solution/get/' + exception,
                 contentType: 'application/json; charset=utf-8',
                 success: function (response) {
-                    bestSolution = JSON.stringify(response);
+                    e.insertBefore(document.createElement('H2').appendChild(document.createTextNode("Proc Recommendation: "+response)), e.firstChild);
                 },
-                error: function (error) {
-                    console.log("Not found solution for this exception");
+                error: function (xhr, textStatus, error) {
+                    return document.createElement("P").appendChild(document.createTextNode("Not found solution for this exception"));
                 }
             });
-            return bestSolution;
         }
-        ,
+    };
 
-        searchForAction: function () {
-            var currentLink = window.location.href
-            if (currentLink.contains("exception?id=") > 0) {
-                var suggestionWindow = document.createElement('div');
-                suggestionWindow.class = 'solution-box';
-                suggestionWindow.appendChild(this.getSuggestionImage());
-                suggestionWindow.appendChild(this.recommendedSolution($('#exception-id')));
-                $.notify(
-                    suggestionWindow,
-                    {
-                        globalPosition: 'top right',
-                    }
-                );
-            }
-
-
-        }
-    }
     $(document).ready(function () {
-        proc.searchForAction();
-    });
 
+        $('#select-solution').click(function () {
+            $(".solution-box").remove();
+            var currentLink = window.location.href;
+            var exceptionId = currentLink.substr(currentLink.lastIndexOf('/') + 1);
+            var suggestionWindow = document.createElement('div');
+            suggestionWindow.className = 'solution-box';
+            proc.recommendedSolution(exceptionId, suggestionWindow);
+            suggestionWindow.appendChild(proc.getSuggestionImage());
+            $('.modal-footer').append(suggestionWindow);
+        });
+    });
 }(jQuery));
