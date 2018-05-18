@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="application.model.Solution" table="SOLUTION" catalog="CODE_MERGERS">
+        <composite-id name="solutionId" class="application.model.SolutionId">
+            <key-property name="exceptionFk" column="exception_fk"></key-property>
+            <key-property name="id" column="id"></key-property>
+            <key-property name="count" column="count"></key-property>
+            <key-property name="description" column="description"></key-property>
+        </composite-id>
+        <many-to-one name="exception" class="application.model.Exception" column="exception_fk" lazy="false"/>
+    </class>
+</hibernate-mapping>

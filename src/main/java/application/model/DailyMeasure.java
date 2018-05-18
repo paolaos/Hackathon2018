@@ -9,6 +9,7 @@ public class DailyMeasure {
   private long indicatorFk;
   private String workProcessFk;
   private String processMeasureFk;
+  private ProcessMeasure processMeasure;
 
 
   public long getId() {
@@ -64,4 +65,11 @@ public class DailyMeasure {
     this.processMeasureFk = processMeasureFk;
   }
 
+  public ProcessMeasure getProcessMeasure() {
+    return processMeasure;
+  }
+
+  public void setProcessMeasure(ProcessMeasure processMeasure) {
+    this.processMeasure = processMeasure;
+  }
 }

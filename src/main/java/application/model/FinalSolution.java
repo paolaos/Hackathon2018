@@ -3,25 +3,13 @@ package application.model;
 
 public class FinalSolution {
 
-  private long exceptionFk;
-  private String solutionFk;
+  private FinalSolutionId finalSolutionId;
 
+    public FinalSolutionId getFinalSolutionId() {
+        return finalSolutionId;
+    }
 
-  public long getExceptionFk() {
-    return exceptionFk;
-  }
-
-  public void setExceptionFk(long exceptionFk) {
-    this.exceptionFk = exceptionFk;
-  }
-
-
-  public String getSolutionFk() {
-    return solutionFk;
-  }
-
-  public void setSolutionFk(String solutionFk) {
-    this.solutionFk = solutionFk;
-  }
-
+    public void setFinalSolutionId(FinalSolutionId finalSolutionId) {
+        this.finalSolutionId = finalSolutionId;
+    }
 }

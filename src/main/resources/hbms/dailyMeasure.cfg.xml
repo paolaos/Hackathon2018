@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="application.model.DailyMeasure" table="DAILY_MEASURE" catalog="CODE_MERGERS">
+        <id name="id" column="id"></id>
+        <property name="value" column="value"></property>
+        <property name="dateCreated" column="date_created"></property>
+        <property name="indicatorFk" column="indicator_fk"></property>
+        <property name="workProcessFk" column="work_process_fk"></property>
+        <property name="processMeasureFk" column="process_measure_fk"></property>
+        <many-to-one name="processMeasure" class="application.model.ProcessMeasure" column="process_measure_fk">
+            <column name="indicator_fk"/>
+            <column name="work_process_fk"/>
+            <column name="process_measure_fk"/>
+        </many-to-one>
+
+    </class>
+
+</hibernate-mapping>
