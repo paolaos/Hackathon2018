@@ -81,7 +81,8 @@ public class SolutionController {
     @RequestMapping(value = "/solution/get/{id}")
     @ResponseBody
     public String getExceptionSolution(@PathVariable("id") long exceptiopnId) {
-        Solution solution = solutionService.getAllSolutions().get(0);
+        Solution solution = solutionService.getRecommendedSolution(exceptiopnId);
+        if(solution == null) return "No solutions yet! Propose one!";
         return solution.getDescription();
     }
 }
