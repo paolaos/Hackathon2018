@@ -5,12 +5,16 @@ import application.core.exception.service.ExceptionService;
 import application.model.Exception;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by alexiaborchgrevink on 5/17/18.
  */
+@Transactional
+@Service
 public class ExceptionServiceImpl implements ExceptionService {
 
     @Autowired

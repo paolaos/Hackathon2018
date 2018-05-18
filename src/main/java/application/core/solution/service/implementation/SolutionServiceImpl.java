@@ -6,12 +6,16 @@ import application.model.Solution;
 import application.model.SolutionId;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by alexiaborchgrevink on 5/17/18.
  */
+@Transactional
+@Service
 public class SolutionServiceImpl implements SolutionService {
 
     @Autowired
