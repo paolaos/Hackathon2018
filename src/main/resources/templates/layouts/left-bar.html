@@ -13,7 +13,9 @@
                     <img th:src="@{/images/user.png}" class="user-image img-circle" style="width:125px!important; height:auto!important; border-radius:50%"/>
                     <!-- picture -->
                     <div style="margin-top: 1px; margin-bottom: 8px; color: #fff">
-                        Paola Ortega Saborio
+                        <th:block th:with="auth=${#authentication.getPrincipal()}">
+                            <b th:text="auth ? ${auth.realName} : ${#authentication.getName()}"></b>
+                        </th:block>
                     </div>
                     <div style="margin-top: 2px; margin-right: 2px; margin-bottom: 8px">
                         <a th:href="@{/settings}"><img th:src="@{/images/settings.png}" style="width: 15px; height:auto; margin-right: 4px"/></a>
