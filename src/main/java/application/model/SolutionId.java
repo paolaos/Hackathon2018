@@ -9,8 +9,6 @@ public class SolutionId implements Serializable {
 
     private long exceptionFk;
     private String id;
-    private long count;
-    private String description;
 
 
     public long getExceptionFk() {
@@ -31,21 +29,5 @@ public class SolutionId implements Serializable {
     }
 
 
-    public long getCount() {
-        return count;
-    }
-
-    public void setCount(long count) {
-        this.count = count;
-    }
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 }
