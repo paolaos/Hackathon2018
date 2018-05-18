@@ -36,14 +36,17 @@
                 <th:block th:each="exception:${exceptions}">
                     <div class="col-md-3 col-sm-6 col-xs-6">
                         <div class="panel panel-back noti-box">
-                       <!-- <span class="icon-box bg-color-red set-icon">
-                            <i class="glyphicon glyphicon-info-sign"></i>
-                        </span>-->
-                            <img th:src="@{/images/warning.png}" class="user-image img-responsive photo-warnign"/>
 
                             <a class="anchor-no-decorate" th:href="@{'/exception/'+${exception.exceptionId}}">
                                 <div class="text-box">
-                                    <p class="main-text" style="word-wrap: break-word;" th:text="${exception.workProcessFk}"></p>
+                                    <div style="width: 100%; display: inline-flex;">
+                                        <div style="width: 70%;">
+                                            <p class="main-text" style="word-wrap: break-word;" th:text="${exception.workProcessFk}"></p>
+                                        </div>
+                                        <div style="width: 30%; text-align: center">
+                                            <img style="float: right; margin: 5px;" th:src="@{/images/warning.png}" class="user-image img-responsive photo-warnign"/>
+                                        </div>
+                                    </div>
                                     <p class="text-muted" style="word-wrap: break-word;" th:text="${exception.processMeasureFk}"></p>
                                     <p class="text-muted" style="word-wrap: break-word;">Deadline</p>
                                     <label style="color: #e2574c;font-size: 20px;word-wrap: break-word;" th:text="${#dates.format(exception.endTime, 'dd-MM-yyyy HH:mm')}"></label>
