@@ -8,31 +8,44 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-                <li class="text-center">
-                    <img th:th:src="@{assets/img/find_user.png}" class="user-image img-responsive"/>
+                <li class="text-center" style="background-color: #000c23 !important;">
+                    <img th:src="@{/images/foto-pao.jpg}" class="user-image img-circle" style="width:125px!important; height:auto!important; border-radius:50%"/>
+                    <!-- picture -->
+                    <div style="margin-top: 1px; margin-bottom: 8px; color: #fff">
+                        Paola Ortega Saborio
+                    </div>
+                    <div style="margin-top: 2px; margin-right: 2px; margin-bottom: 8px">
+                        <a th:href="@{/settings}"><img th:src="@{/images/settings.png}" style="width: 15px; height:auto; margin-right: 4px"/></a>
+                        <a th:href="@{/logout}"><img th:src="@{/images/logout.png}" style="width: 15px; height:auto; "/></a>
+                    </div>
+
+
                 </li>
+
+
 
                 <li>
                     <a class="active-menu" th:href="@{/index}"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                 </li>
-                <li>
+                <!--li>
                     <a th:href="@{layouts/ui.html}"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
                 </li>
                 <li>
                     <a th:href="@{layouts/tab-panel.html}"><i class="fa fa-qrcode fa-3x"></i> Tabs &amp; Panels</a>
                 </li>
                 <li>
-                    <a th:href="@{layouts/chart.html}"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
+                    <a th:href="@{layouts/form.html}"><i class="fa fa-edit fa-3x"></i> Previous Exceptions </a>
                 </li>
                 <li>
-                    <a th:href="@{layouts/table.html}"><i class="fa fa-table fa-3x"></i> Table Examples</a>
-                </li>
+                    <a th:href="@{index}"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
+                </li-->
                 <li>
-                    <a th:href="@{layouts/form.html}"><i class="fa fa-edit fa-3x"></i> Forms </a>
+                    <a th:href="@{layouts/table.html}"><i class="fa fa-table fa-3x"></i> Previous Exceptions </a>
                 </li>
 
 
-                <li>
+
+                <!--li>
                     <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -61,7 +74,7 @@
                 </li>
                 <li>
                     <a th:href="@{layouts/blank.html}"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                </li>
+                </li-->
             </ul>
 
         </div>
