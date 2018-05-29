@@ -97,7 +97,7 @@ public class SolutionController {
 
             Integer count = processMeasureParticipantService.countParticipantsByProcessMeasure(exception.getProcessMeasure().getProcessMeasureId());
 
-            if(count >= 1) {
+            if(count > 1) {
                 exception.setStatus("INDECISIVE");
             } else {
                 exception.setStatus("CONFIRMED");

@@ -29,10 +29,16 @@
             <div class="row">
                 <div class="col-md-12">
                     <div style="display: inline-flex !important;">
-                        <h2 style="color: #000c23;font-weight: bold;">Exception Details -</h2>
-                        <h2 style="font-weight: bold;" class="color-rojo"> Pending</h2>
-                        <h2 style="font-weight: bold;" class="color-amarillo"> Awaiting</h2>
-                        <h2 style="font-weight: bold;" class="color-verde"> Solved</h2>
+                        <h2 style="color: #000c23;font-weight: bold;">Exception Details -&nbsp;</h2>
+                        <th:block th:if="${exception.status} == 'CONFIRMED'">
+                            <h2 style="font-weight: bold;" class="color-verde">Solved</h2>
+                        </th:block>
+                        <th:block th:if="${exception.status} == 'INDECISIVE'">
+                            <h2 style="font-weight: bold;" class="color-amarillo">Awaiting</h2>
+                        </th:block>
+                        <th:block th:if="${exception.status} == 'PENDING'">
+                            <h2 style="font-weight: bold;" class="color-rojo">Pending</h2>
+                        </th:block>
                     </div>
                 </div>
             </div>
@@ -76,7 +82,7 @@
                                             <div style="width: 100%;">
                                                 <div style="width: auto; display: inline-flex;">
                                                     <form id="add-user" th:action="@{/exception/add-user}">
-                                                        <input name="exceptionId" th:value="${exception.indicatorFk}" class="hidden"/>
+                                                        <input name="exceptionId" th:value="${exception.exceptionId}" class="hidden"/>
                                                         <select name="userId" style="width: auto;" class="form-control">
                                                             <th:block th:each="user: ${allUsers}">
                                                                 <option th:text="${user.name}" th:value="${user.idUserPk}"></option>
