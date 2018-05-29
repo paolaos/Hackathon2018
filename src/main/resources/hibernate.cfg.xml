@@ -9,7 +9,7 @@
         <!-- MySQL - Database Specific Property Details -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://18.222.36.80:3306/CODE_MERGERS?useSSL=false</property>
+        <property name="hibernate.connection.url">jdbc:mysql://18.218.139.72:3306/CODE_MERGERS?useSSL=false</property>
         <property name="hibernate.connection.username">remote</property>
         <property name="hibernate.connection.password">remote</property>
         <!-- Isolation level: READ COMMITTED -->
@@ -18,6 +18,8 @@
 
         <!-- Config for Showing SQL to Console if true specified -->
         <property name="hibernate.show_sql">true</property>
+
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
         <!-- By Default this Property is set to False if you don't declare this
         Property. If it set to True than you don't need to Commit the transaction
